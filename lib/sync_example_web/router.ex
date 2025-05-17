@@ -14,6 +14,20 @@ defmodule SyncExampleWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/mcp" do
+    forward "/", AshAi.Mcp.Router,
+      tools: [
+        # list your tools here
+        # :tool1,
+        # :tool2,
+        # If using mcp-remote, and this issue is not fixed yet: https://github.com/geelen/mcp-remote/issues/66
+        # You will need to set the `protocol_version_statement` to the
+        # older version.
+      ],
+      protocol_version_statement: "2024-11-05",
+      otp_app: :sync_example
+  end
+
   scope "/", SyncExampleWeb do
     pipe_through :browser
 

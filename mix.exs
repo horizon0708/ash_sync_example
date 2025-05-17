@@ -33,6 +33,10 @@ defmodule SyncExample.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ash_ai, "~> 0.1"},
+      {:tidewave, "~> 0.1", only: [:dev]},
+      {:electric, "~> 1.0 and >= 1.0.13", override: true},
+      {:phoenix_sync, "~> 0.4"},
       {:sourceror, "~> 1.8", only: [:dev, :test]},
       {:ash_postgres, "~> 2.0"},
       {:ash, "~> 3.0"},

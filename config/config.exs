@@ -18,6 +18,12 @@ config :ash,
   read_action_after_action_hooks_in_order?: true,
   bulk_actions_default_to_errors?: true
 
+# config/config.exs
+config :phoenix_sync,
+  env: config_env(),
+  mode: :embedded,
+  repo: MyApp.Repo
+
 config :spark,
   formatter: [
     remove_parens?: true,
@@ -45,7 +51,8 @@ config :spark,
 
 config :sync_example,
   ecto_repos: [SyncExample.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  ash_domains: [SyncExample.Blog]
 
 # Configures the endpoint
 config :sync_example, SyncExampleWeb.Endpoint,

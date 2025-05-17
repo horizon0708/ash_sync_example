@@ -12,12 +12,8 @@ defmodule SyncExample.Application do
       SyncExample.Repo,
       {DNSCluster, query: Application.get_env(:sync_example, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SyncExample.PubSub},
-      # Start the Finch HTTP client for sending emails
       {Finch, name: SyncExample.Finch},
-      # Start a worker by calling: SyncExample.Worker.start_link(arg)
-      # {SyncExample.Worker, arg},
-      # Start to serve requests, typically the last entry
-      SyncExampleWeb.Endpoint
+      {SyncExampleWeb.Endpoint, phoenix_sync: Phoenix.Sync.plug_opts()}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
