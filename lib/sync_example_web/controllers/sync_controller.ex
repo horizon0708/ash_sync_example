@@ -1,16 +1,11 @@
-defmodule SyncExampleWeb.TodoController do
+defmodule SyncExampleWeb.SyncController do
   use Phoenix.Controller, formats: [:html, :json]
 
-  import Phoenix.Sync.Controller
+  def sync(conn, params) do
+    AshSync.sync_render(:sync_example, conn, params)
+  end
 
-  def all(conn, %{"query" => query} = params) do
-    # sync_render(
-
-    # )
-    # sync_render(
-    #   conn,
-    #   params,
-    #   from(t in Todos.Todo, where: t.owner_id == ^user_id)
-    # )
+  def mutate(conn, params) do
+    AshSync.mutate(:sync_example, conn, params)
   end
 end

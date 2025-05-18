@@ -9,10 +9,27 @@ defmodule SyncExample.Blog.Post do
     repo SyncExample.Repo
   end
 
+  actions do
+    defaults [:destroy, create: :*, update: :*]
+
+    read :read do
+      primary? true
+    end
+  end
+
   attributes do
     uuid_primary_key :id
 
-    attribute :title, :string
-    attribute :body, :string
+    attribute :title, :string do
+      public? true
+    end
+
+    attribute :body, :string do
+      public? true
+    end
+
+    timestamps do
+      public? true
+    end
   end
 end

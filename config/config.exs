@@ -22,7 +22,7 @@ config :ash,
 config :phoenix_sync,
   env: config_env(),
   mode: :embedded,
-  repo: MyApp.Repo
+  repo: SyncExample.Repo
 
 config :spark,
   formatter: [
@@ -79,7 +79,7 @@ config :esbuild,
   version: "0.17.11",
   sync_example: [
     args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+      ~w(js/app.ts --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]

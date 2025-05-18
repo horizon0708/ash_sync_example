@@ -6,8 +6,8 @@ defmodule SyncExampleWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {SyncExampleWeb.Layouts, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    # plug :protect_from_forgery
+    # plug :put_secure_browser_headers
   end
 
   pipeline :api do
@@ -32,6 +32,8 @@ defmodule SyncExampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/sync", SyncController, :sync
+    post "/ingest/mutations", SyncController, :mutate
   end
 
   # Other scopes may use custom stacks.

@@ -34,6 +34,7 @@ defmodule SyncExample.MixProject do
   defp deps do
     [
       {:ash_ai, "~> 0.1"},
+      {:ash_sync, github: "ash-project/ash_sync"},
       {:tidewave, "~> 0.1", only: [:dev]},
       {:electric, "~> 1.0 and >= 1.0.13", override: true},
       {:phoenix_sync, "~> 0.4"},
