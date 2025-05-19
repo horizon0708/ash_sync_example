@@ -2,7 +2,7 @@ import type {
   Collection,
   MutationFn,
   PendingMutation
-} from '@tanstack/react-optimistic';
+} from '@tanstack/react-db';
 import type { BlogPost } from './schema';
 
 export const ingestMutations: MutationFn = async ({ transaction }) => {

@@ -40,7 +40,7 @@ defmodule SyncExample.MixProject do
       {:phoenix_sync, "~> 0.4"},
       {:sourceror, "~> 1.8", only: [:dev, :test]},
       {:ash_postgres, "~> 2.0"},
-      {:ash, "~> 3.0"},
+      {:ash, github: "ash-project/ash", override: true},
       {:igniter, "~> 0.5", only: [:dev, :test]},
       {:phoenix, "~> 1.7.21"},
       {:phoenix_ecto, "~> 4.5"},

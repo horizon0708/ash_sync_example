@@ -1,21 +1,23 @@
 import React from "react";
 import type { FormEvent } from "react";
 
-import { createTransaction, useLiveQuery } from "@tanstack/db";
+import { createTransaction } from "@tanstack/db";
+import { useLiveQuery } from "@tanstack/react-db";
+
 // import { useLiveQuery } from "@tanstack/react-optimistic";
 import { listBlogPosts } from "./collections";
 import { ingestMutations } from "./mutations";
 import { v4 } from "uuid";
 
+const collection = listBlogPosts();
+
 export default function App() {
-  const collection = listBlogPosts();
   const { data: posts, state: state } = useLiveQuery((query) =>
     query
       .from({ collection })
       .keyBy(`@id`)
       .select(`@id`, `@title`, `@body`, `@inserted_at`),
   );
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-purple-900 via-indigo-900 to-black px-4 py-12">
       <div className="max-w-2xl mx-auto backdrop-blur-sm bg-black/30 rounded-lg border border-pink-500/20 shadow-lg shadow-pink-500/20 p-8">
