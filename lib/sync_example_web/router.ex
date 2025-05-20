@@ -33,7 +33,8 @@ defmodule SyncExampleWeb.Router do
 
     get "/", PageController, :home
     get "/sync", SyncController, :sync
-    post "/ingest/mutations", SyncController, :mutate
+    post "/ingest/mutations", SyncController, :sync_mutate
+    # post "/mutate/:name", SyncController, :mutate
   end
 
   # Other scopes may use custom stacks.

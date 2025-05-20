@@ -6,7 +6,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 
 // import { useLiveQuery } from "@tanstack/react-optimistic";
 import { listBlogPosts } from "./collections";
-import { ingestMutations } from "./mutations";
+import { ingestMutations } from "./ingest";
 import { v4 } from "uuid";
 
 const collection = listBlogPosts();
@@ -53,16 +53,18 @@ export default function App() {
               >
                 <div className="flex justify-between items-center mb-3">
                   <h2 className="text-xl font-bold text-cyan-300">
-                    {post.title}
+                    {post.title} - {post.id}
                   </h2>
                   <button
                     onClick={() =>
                       createTransaction({ mutationFn: ingestMutations }).mutate(
                         () => {
-                          const res = collection.update(post, (post) => {
-                            post.title = post.title + "a";
-                          });
-                          return res;
+                          return collection.update(
+                            { id: post.id, title: post.title },
+                            (post) => {
+                              post.title = post.title + "a";
+                            },
+                          );
                         },
                       )
                     }
