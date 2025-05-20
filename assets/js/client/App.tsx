@@ -59,12 +59,9 @@ export default function App() {
                     onClick={() =>
                       createTransaction({ mutationFn: ingestMutations }).mutate(
                         () => {
-                          const res = collection.update({
-                            id: post.id,
-                            body: post.body + "a",
-                            updated_at: new Date().toISOString(),
+                          const res = collection.update(post, (post) => {
+                            post.title = post.title + "a";
                           });
-                          console.log(res);
                           return res;
                         },
                       )
