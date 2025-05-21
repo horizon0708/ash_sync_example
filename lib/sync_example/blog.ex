@@ -11,7 +11,7 @@ defmodule SyncExample.Blog do
         on_delete :destroy
       end
 
-      mutation(:create_post, :create)
+      # mutation(:create_post, :create)
     end
   end
 

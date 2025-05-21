@@ -7,8 +7,9 @@ import Config
 # Run `mix help test` for more information.
 config :sync_example, SyncExample.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password",
   hostname: "localhost",
+  port: 54321,
   database: "sync_example_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2

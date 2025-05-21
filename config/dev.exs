@@ -3,9 +3,9 @@ import Config
 # Configure your database
 config :sync_example, SyncExample.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password",
   hostname: "localhost",
-  port: 5432,
+  port: 54321,
   database: "sync_example_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
