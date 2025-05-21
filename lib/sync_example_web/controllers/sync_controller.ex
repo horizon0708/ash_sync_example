@@ -9,7 +9,7 @@ defmodule SyncExampleWeb.SyncController do
     AshSync.sync_mutate(:sync_example, conn, params)
   end
 
-  def mutate(conn, params) do
-    AshSync.mutate(:sync_example, conn, params)
-  end
+  # def mutate(conn, params) do
+  #   AshSync.mutate(:sync_example, conn, params)
+  # end
 end
